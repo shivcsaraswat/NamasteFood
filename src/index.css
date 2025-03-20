@@ -1,0 +1,99 @@
+
+@import "tailwindcss";
+
+/* 
+ .logo { 
+    padding : 3px 3px 3px 3px;
+    width : 80px;
+
+}
+
+.header { 
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black
+}
+
+.navItems > ul {
+    display : flex;
+}
+
+.navItems > ul > li { 
+    list-style: none;
+    margin : 10px;
+}
+
+.body { 
+    margin: 3px;
+}
+
+.search-container { 
+    padding : 2px;
+}
+
+.res-card { 
+    background-color :  #f0f0f0;
+    min-width: 200px;
+    max-width: 200px;
+    min-height : 250px;
+    padding : 3px;
+}
+
+.res-card:hover { 
+   
+    border : 1px solid black;
+    cursor : pointer;
+}
+
+.res-logo { 
+    padding: 3px ;
+    width : 194px;
+}
+
+.res-container { 
+    margin: 2px;
+    
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card { 
+    background-color: #f0f0f0;
+    border : 1px solid black;
+    min-width : 200px;
+    max-width : 200px;
+    min-height : 250px;
+    padding : 3px;
+    
+}
+
+
+.shimmer-res-container { 
+  display : flex;
+  flex-wrap : wrap;
+}
+
+
+.user-card { 
+     padding : 10px;
+     margin : 10px 0px 0px 10px;
+     border :  1px solid black;
+     max-width : 200px;
+     min-height : 250px;
+}
+.user-card-container { 
+    margin : 10px;
+    display : flex;
+    flex-wrap : wrap;
+    
+}
+
+.user-card-class { 
+    border : 1px solid black;
+    padding : 10px;
+    margin : 10px 0px 0px 10px;
+    max-width : 200px;
+    min-height : 250px;
+
+}   */
