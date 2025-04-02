@@ -15,7 +15,7 @@ const ResCard = ({resObj}) => {
             <div className="font-bold mt-4 mb-2 ml-2">
                   {name}
             </div>
-            <div className="avg-price ml-2">
+            <div className="avg-price ml-2"> 
                  {costForTwo}
             </div>
             <div className="res-cuisine flex flex-wrap">

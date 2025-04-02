@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import ContactUs from "./components/ContactUs";
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import Menu from "./components/Menu";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 
 // App component 
@@ -41,7 +41,7 @@ const appRouter = createBrowserRouter([
                 },
                  {
                        path : "/restaurant-menu/:resId",
-                       element : <Menu/>
+                       element : <RestaurantMenu/>
                  }
 
            ],

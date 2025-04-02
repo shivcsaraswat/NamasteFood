@@ -6,40 +6,47 @@ import { Link } from 'react-router-dom';
 import { ShimmerBody, ShimmerCard } from "./ShimmerBody";
 import Search from "./Search.js";
 import TopRated from "./TopRated.js";
-import useRestaurant from "../utils/useRestaurant.js";
+
 
 const Body = () => {
     
+
     
+    //State variable to manage list of Restaurants 
+    const [listofRes, setListOfRes] = useState(null);
 
-    // //State variable to manage rendering of restaurant cards on the web page
-    // const [renderedList, setRenderedList] = useState(null);
+    //State variable to manage list of Restaurants 
+    const [clicked, setClicked] = useState(false);
 
+    //State variable to manage rendering of restaurant cards on the web page
+    const [renderedList, setRenderedList] = useState(null);
+ 
 
-    // // useRestaurant();
+    // State variable to manage promotion status of restaurant
+    const [promo, setPromo] = useState(true);
+
+    // useRestaurant();
     
-    // // const fetchData =  async () => { 
-    // //     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
-    // //     const json = await data.json()
-    // //     console.log("this is json data", json.data);
-    // //     setListOfRes(json.data.cards[1]?.card?.card.gridElements["infoWithStyle"].restaurants)
-    // //     setRenderedList(json.data.cards[1]?.card?.card.gridElements["infoWithStyle"].restaurants)
-    // //     console.log("this is list of res " , renderedList);
-    // // }
+    const fetchData =  async () => { 
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const json = await data.json()
+        console.log("this is json data", json.data);
+        setListOfRes(json.data.cards[1]?.card?.card.gridElements["infoWithStyle"].restaurants)
+        setRenderedList(json.data.cards[1]?.card?.card.gridElements["infoWithStyle"].restaurants)
+        console.log("this is list of res " , renderedList);
+    }
 
 
-    // // Makes the swiggy API call
+    // Makes the swiggy API call
     
-    // // useEffect (
-    // //     () => {
-    // //         console.log("use effect called!!")
-    // //         fetchData();
-    // //     },
-    // //     []
-    // // );
-    
-    const resInfo = useRestaurant();
-    setRenderedList(resInfo);
+    useEffect (
+        () => {
+            console.log("use effect called!!")
+            fetchData();
+        },
+        []
+    );
+
 
     console.log("Body rendered");
 
