@@ -7,16 +7,26 @@ import AboutUs from './components/AboutUs';
 import ContactUs from "./components/ContactUs";
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from './utils/UserContext';
+import {useState, useContext} from 'react';
 
 
 // App component 
 const App = () => { 
+
     console.log("Appp rendered");
+    const {loggedInUser} = useContext(UserContext);
+    const [userName , setUserName] = useState(loggedInUser);
     return (
+        
          <div className = "App">
-              <Header/>
-              <Outlet/>
-          </div>
+           
+            <UserContext.Provider value = {{loggedInUser : userName, setUserName}}>
+               <Header/>
+               <Outlet/>
+            </UserContext.Provider>
+         </div>
+       
     );
 }
 

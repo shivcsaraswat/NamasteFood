@@ -1,8 +1,11 @@
 import { useState, lazy} from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../utils/UserContext';
+import {useContext} from 'react';
 
 // Header comp 
 const Header = () => {
+    const { loggedInUser } = useContext(UserContext);
     // Login State variable 
     const [loginStatus, setLoginStatus] = useState("Login");
     const handleLoginStatus = () => { 
@@ -34,6 +37,7 @@ const Header = () => {
                     <Link to = "/contact-us"> Contact Us</Link>
                 </li>
                 <li className = "px-2 pt-6"> <button onClick = {() => {handleLoginStatus()}}>{loginStatus}</button></li>
+                <li className = "px-2 pt-6">{loggedInUser}</li>
                 
             </ul>
         </div>

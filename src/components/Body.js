@@ -1,12 +1,13 @@
 import ResCard , {withPromotedLabel} from "./ResCard";
 import {response, restaurantData  } from '../utils/api';
-import { useState, useEffect }  from 'react';
+import { useState, useEffect , useContext}  from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShimmerBody, ShimmerCard } from "./ShimmerBody";
 import Search from "./Search.js";
 import TopRated from "./TopRated.js";
-
+//import UserContext from '../utils/UserContext';
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
     
@@ -24,6 +25,10 @@ const Body = () => {
 
     // State variable to manage promotion status of restaurant
     const [promo, setPromo] = useState(true);
+
+
+    // extracting loggedInUser
+    const {loggedInUser, setUserName} = useContext(UserContext);
 
     // useRestaurant();
     
@@ -57,6 +62,10 @@ const Body = () => {
     <div className = "body">
         <div className = "search-container">
             <Search listofRes = { listofRes } setRenderedList = {setRenderedList}/>
+        </div>
+
+        <div >
+            <input className = "input p-2 border-4" value = {loggedInUser} onChange={(e) => setUserName(e.target.value)}></input>
         </div>
        
           <TopRated listofRes={listofRes} setRenderedList={setRenderedList}/>
