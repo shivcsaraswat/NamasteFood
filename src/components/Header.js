@@ -2,9 +2,15 @@ import { useState, lazy} from 'react';
 import { Link } from 'react-router-dom';
 import UserContext from '../utils/UserContext';
 import {useContext} from 'react';
+import { useSelector } from 'react-redux';
+
 
 // Header comp 
 const Header = () => {
+    
+    // Subscribing appstore
+    const cartItems = useSelector((store) => store.cart.items);
+
     const { loggedInUser } = useContext(UserContext);
     // Login State variable 
     const [loginStatus, setLoginStatus] = useState("Login");
@@ -36,8 +42,12 @@ const Header = () => {
                 <li className = "px-2 pt-6"> 
                     <Link to = "/contact-us"> Contact Us</Link>
                 </li>
+                <li className = "cart px-2 pt-6"> 
+                    <Link to = "/cart"> Cart ({cartItems.length}) </Link> 
+                </li>
                 <li className = "px-2 pt-6"> <button onClick = {() => {handleLoginStatus()}}>{loginStatus}</button></li>
                 <li className = "px-2 pt-6">{loggedInUser}</li>
+                
                 
             </ul>
         </div>

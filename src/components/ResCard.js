@@ -3,11 +3,12 @@ import imageConfig from "../utils/config"
 
 
 const ResCard = ({resObj}) => { 
+     //console.log(resObj);
  
     const {id, name, costForTwo, cuisines, avgRating, cloudinaryImageId} = resObj
     //console.log(cuisines)
    return (
-       <div className = "res-card border max-w-[300px] mx-[10px] my-[10px] min-h-[600px] max-h-[600px] shadow-lg hover:bg-green-50 cursor-pointer">
+       <div data-testid = "resCard" className = "res-card border max-w-[300px] mx-[10px] my-[10px] min-h-[600px] max-h-[600px] shadow-lg hover:bg-green-50 cursor-pointer">
             <div className="res-logo-container ">
                  <img className ="res-logo min-h-[400px] " src = {imageConfig.genResImageURL + cloudinaryImageId}></img>
             </div>

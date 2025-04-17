@@ -6,9 +6,9 @@ class UserCardClass extends React.Component {
 
     constructor(props) { 
         super(props)
-        console.log(props);
+        //console.log(props);
 
-        console.log("Child")
+        //console.log("Child")
 
         this.state = { 
             state1 : 0, 
@@ -21,7 +21,7 @@ class UserCardClass extends React.Component {
         const {name, age, location} = this.props;
         const {state1, state2 } = this.state;
 
-        console.log("Component re-rendered ")
+        //console.log("Component re-rendered ")
 
         const handleStateUpd = () => { 
             this.setState({
@@ -38,7 +38,7 @@ class UserCardClass extends React.Component {
                  </h1>
                  <button onClick = {() => {  
                     this.state.state1 = this.state.state1 + 1;
-                    console.log(this.state.state1)
+                    //console.log(this.state.state1)
                     }}>
                            Update Counter
                  </button>

@@ -35,10 +35,10 @@ const Body = () => {
     const fetchData =  async () => { 
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const json = await data.json()
-        console.log("this is json data", json.data);
+      //  console.log("this is json data", json.data);
         setListOfRes(json.data.cards[1]?.card?.card.gridElements["infoWithStyle"].restaurants)
         setRenderedList(json.data.cards[1]?.card?.card.gridElements["infoWithStyle"].restaurants)
-        console.log("this is list of res " , renderedList);
+       // console.log("this is list of res " , renderedList);
     }
 
 
@@ -46,17 +46,17 @@ const Body = () => {
     
     useEffect (
         () => {
-            console.log("use effect called!!")
+            //console.log("use effect called!!")
             fetchData();
         },
         []
     );
 
 
-    console.log("Body rendered");
+    //console.log("Body rendered");
 
     const PromoComp = withPromotedLabel(ResCard);
-    console.log(PromoComp);
+    //console.log(PromoComp);
    
     return (renderedList === null)? <ShimmerBody/> :  (
     <div className = "body">

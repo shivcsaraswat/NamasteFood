@@ -10,24 +10,28 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from './utils/UserContext';
 import {useState, useContext} from 'react';
 
+import { Provider} from 'react-redux';
+import appStore from './utils/appStore';
+import Cart from './components/Cart'
+
 
 // App component 
 const App = () => { 
 
-    console.log("Appp rendered");
+   // console.log("Appp rendered");
     const {loggedInUser} = useContext(UserContext);
     const [userName , setUserName] = useState(loggedInUser);
     return (
-        
-         <div className = "App">
-           
-            <UserContext.Provider value = {{loggedInUser : userName, setUserName}}>
-               <Header/>
-               <Outlet/>
-            </UserContext.Provider>
-         </div>
        
-    );
+            <div className = "App">
+               <Provider store = {appStore}>
+                    <UserContext.Provider value = {{loggedInUser : userName, setUserName}}>
+                        <Header/>
+                        <Outlet/>
+                    </UserContext.Provider>
+                </Provider>
+            </div>
+        );
 }
 
 
@@ -49,10 +53,15 @@ const appRouter = createBrowserRouter([
                     path : "/contact-us",
                     element : <ContactUs/>
                 },
-                 {
+                {
                        path : "/restaurant-menu/:resId",
                        element : <RestaurantMenu/>
-                 }
+                },
+                { 
+                       path : "/cart",
+                       element : <Cart/>
+                } 
+
 
            ],
            errorElement : <div>This is Error fall back for App</div>,

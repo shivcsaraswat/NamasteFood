@@ -19,24 +19,25 @@ const RestaurantMenu = () => {
     const [accordOpenIndex, setAccordOpenIndex] = useState(1);
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=" + params.resId  + "&catalog_qa=undefined&submitAction=ENTER") 
-        const json = await data.json()
+        const json = await data.json();
+        // console.log("this is restaurant menu", json);
         // console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card["@type"])
         // console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((card) => card.card.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"//card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
         //     ));
         const dropDown = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((card) => card.card.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-        //console.log("this is dropdown " , dropDown);
+        // console.log("this is dropdown " , dropDown);
         setDropDownMenu(dropDown);
     }
 
     useEffect(
         () => { 
-                console.log("Making API call ")
+               // console.log("Making API call ")
                 fetchData();
             },
             []
        )
        useEffect(() => {
-        console.log("Updated dropDownMenu:", dropDownMenu);
+       // console.log("Updated dropDownMenu:", dropDownMenu);
         // Perform any actions that depend on the updated dropDownMenu state here
       }, [dropDownMenu]);
      

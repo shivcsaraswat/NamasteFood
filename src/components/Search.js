@@ -4,7 +4,7 @@ import {useState} from 'react';
 const Search = ({listofRes, setRenderedList}) => {
          
         //const { listofRes, setRenderedList } = searchObj;
-        console.log(listofRes)
+       // console.log(listofRes)
 
         //console.log("Search Rendered");
         const [searchText, setSearchText] = useState("");
@@ -31,7 +31,7 @@ const Search = ({listofRes, setRenderedList}) => {
         }
         return (
             <div className = " search mt-4 ml-152">
-               <input className = "w-100 border mt-5 mb-4 mr-3 " onChange = {(e) => {handleChange(e)}} />
+               <input className = "w-100 border mt-5 mb-4 mr-3 " data-testid = "search-inp" onChange = {(e) => {handleChange(e)}} />
                <button className = "border rounded-xl w-[70px]" onClick={() => {handleSearch()}}>Search</button>
             </div>
         );
