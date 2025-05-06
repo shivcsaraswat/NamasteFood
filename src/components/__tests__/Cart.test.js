@@ -61,7 +61,7 @@ describe("Testing different components", () => {
         const ResItems = screen.getAllByTestId("resItem");
         expect(ResItems.length).toBe(6);
 
-
+        
 
         // Find the add btn ( Restaurant Category )
         
